@@ -1,0 +1,95 @@
+Exercise 14: Prompting and Passing
+
+Let's do one exercise that uses argv and raw_input together to ask the user something specific. You will need this for the next exercise where we learn to read and write files. In this exercise we'll use raw_input slightly differently by having it just print a simple > prompt. This is similar to a game like Zork or Adventure.
+
+ 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+
+	
+
+from sys import argv
+
+script, user_name = argv
+prompt = '> '
+
+print "Hi %s, I'm the %s script." % (user_name, script)
+print "I'd like to ask you a few questions."
+print "Do you like me %s?" % user_name
+likes = raw_input(prompt)
+
+print "Where do you live %s?" % user_name
+lives = raw_input(prompt)
+
+print "What kind of computer do you have?"
+computer = raw_input(prompt)
+
+print """
+Alright, so you said %r about liking me.
+You live in %r.  Not sure where that is.
+And you have a %r computer.  Nice.
+""" % (likes, lives, computer)
+
+Notice though that we make a variable prompt that is set to the prompt we want, and we give that to raw_input instead of typing it over and over. Now if we want to make the prompt something else, we just change it in this one spot and rerun the script.
+
+Very handy.
+What You Should See
+
+When you run this, remember that you have to give the script your name for the argv arguments.
+
+$ python ex14.py zed
+Hi zed, I'm the ex14.py script.
+I'd like to ask you a few questions.
+Do you like me zed?
+>  Yes
+Where do you live zed?
+>  San Francisco
+What kind of computer do you have?
+>  Tandy 1000
+
+Alright, so you said 'Yes' about liking me.
+You live in 'San Francisco'.  Not sure where that is.
+And you have a 'Tandy 1000' computer.  Nice.
+
+Study Drills
+
+    Find out what Zork and Adventure were. Try to find a copy and play it.
+    Change the prompt variable to something else entirely.
+    Add another argument and use it in your script.
+    Make sure you understand how I combined a """ style multiline string with the % format activator as the last print.
+
+Common Student Questions
+
+I get SyntaxError: invalid syntax when I run this script.
+    Again, you have to run it right on the command line, not inside Python. If you type python, and then try to type python ex14.py Zed it will fail because you are running Python inside Python. Close your window and then just type python ex14.py Zed.
+I don't understand what you mean by changing the prompt?
+    See the variable prompt = '> '. Change that to have a different value. You know this, it's just a string and you've done 13 exercises making them, so take the time to figure it out.
+I get the error ValueError: need more than 1 value to unpack.
+    Remember when I said you need to look at the What You Should See (WYSS) section and replicate what I did? You need to do the same thing here and focus on how I type the command in, and why I have a command line argument.
+Can I use double-quotes for the prompt variable?
+    You totally can. Go ahead and try that.
+You have a Tandy computer?
+    I did when I was little.
+I get NameError: name 'prompt' is not defined when I run it.
+    You either spelled the name of the prompt variable wrong or forgot that line. Go back and compare each line of code to mine, and start at the bottom of the script and work your way to the top.
+How can I run this from IDLE?
+    Don't use IDLE.
+
